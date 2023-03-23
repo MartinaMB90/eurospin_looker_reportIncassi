@@ -59,6 +59,11 @@ view: negozio_bi {
     sql: ${TABLE}.Ente_Destinatario ;;
   }
 
+  dimension: negozio_cod_descr{
+    type: string
+    sql: ${TABLE}.Ente_Destinatario || " - " || ${TABLE}.Nome ;;
+  }
+
   dimension: flag_reparto_gastronomia {
     type: string
     sql: ${TABLE}.Flag_Reparto_Gastronomia ;;
@@ -124,8 +129,4 @@ view: negozio_bi {
     sql: ${TABLE}.Tipo_Negozio ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
 }

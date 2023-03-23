@@ -37,6 +37,7 @@ view: budget_consolidato_bi {
   measure: budget_AC {
     label: "Budget {{_filters['negozio_calendario.anno_confronto_filtro']}}"
     type: sum
+    #html: <span style="background-color:darkgreen;">{{ rendered_value }}</span> ;;
     sql: ${budget} ;;
     value_format: "#,##0"
     filters: [negozio_calendario.ac_vs_ap: "AC"]

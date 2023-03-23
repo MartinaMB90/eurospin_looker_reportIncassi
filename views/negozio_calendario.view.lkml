@@ -18,12 +18,6 @@ view: negozio_calendario {
     sql: ${anno} || ${settimana} || ${ente_destinatario} || coalesce(${codice_reparto}, "") ;;
   }
 
-  dimension: key_budget {
-    hidden: yes
-    type:  string
-    sql: ${anno} || ${ente_destinatario} || coalesce(${codice_reparto}, "") ;;
-  }
-
   dimension: key_produttivita {
     hidden: yes
     type:  string

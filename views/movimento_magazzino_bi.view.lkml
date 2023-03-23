@@ -113,6 +113,20 @@ view: movimento_magazzino_bi {
     filters: [negozio_calendario.ac_vs_ap: "AP"]
   }
 
+  measure: incidenza_scarti_AC {
+    label: "Incidenza scarti % {{_filters['negozio_calendario.anno_confronto_filtro']}}"
+    type: number
+    sql: safe_divide(${scarti_AC}, ${corrispettivi_AC}) ;;
+    value_format: "0.00%"
+  }
+
+  measure: incidenza_scarti_AP {
+    #label: "Incidenza scarti % {{_filters['negozio_calendario.anno_confronto_filtro']}}"
+    type: number
+    sql: safe_divide(${scarti_AP}, ${corrispettivi_AP}) ;;
+    value_format: "0.00%"
+  }
+
   measure: prod_metro_quadro_AC {
     label: "Produzione per metro quadro {{_filters['negozio_calendario.anno_confronto_filtro']}}"
     type: number
@@ -127,17 +141,49 @@ view: movimento_magazzino_bi {
     value_format: "#,##0"
   }
 
-  #measure: spesa_media_AC {
-  #  label: "Spesa media {{_filters['negozio_calendario.anno_confronto_filtro']}}"
-  #  type: number
-  #  sql: safe_divide(${corrispettivi_AC}, ${testata_scontrino.num_clienti_AC}) ;;
-  #  value_format: "#,##0.00"
-  #}
-#
-  #measure: spesa_media_AP {
-  #  #label: "Spesa media {{_filters['negozio_calendario.anno_confronto_filtro']}}"
-  #  type: number
-  #  sql: safe_divide(${corrispettivi_AP}, ${testata_scontrino.num_clienti_AP}) ;;
-  #  value_format: "#,##0.00"
-  #}
+  measure: var_prod_metro_quadro {
+    label: "Var. produzione per metro quadro"
+    type: number
+    sql: safe_divide(${prod_metro_quadro_AC} - ${prod_metro_quadro_AP}, ${prod_metro_quadro_AP}) ;;
+    value_format: "0.00%"
+  }
+
+  measure: spesa_media_AC {
+    label: "Spesa media {{_filters['negozio_calendario.anno_confronto_filtro']}}"
+    type: number
+    sql: safe_divide(${corrispettivi_AC}, ${scontrino_bi.num_clienti_AC}) ;;
+    value_format: "#,##0.00"
+  }
+
+  measure: spesa_media_AP {
+    #label: "Spesa media {{_filters['negozio_calendario.anno_confronto_filtro']}}"
+    type: number
+    sql: safe_divide(${corrispettivi_AP}, ${scontrino_bi.num_clienti_AP}) ;;
+    value_format: "#,##0.00"
+  }
+
+  measure: var_spesa_media {
+    label: "Var. Spesa media"
+    type: number
+    sql: safe_divide(${spesa_media_AC} - ${spesa_media_AP}, ${spesa_media_AP}) ;;
+    value_format: "0.00%"
+  }
+
+  ################################### REPARTO 03 ##################################
+
+  measure: corrispettivi_03__AC {
+    label: "Corrispettivi 03 {{_filters['negozio_calendario.anno_confronto_filtro']}}"
+    type: sum
+    sql: ${corrispettivo} ;;
+    value_format: "#,##0"
+    filters: [negozio_calendario.ac_vs_ap: "AC"]
+  }
+
+  measure: corrispettivi_03_AP {
+    #label: "Corrispettivi {{_filters['negozio_calendario.anno_confronto_filtro']}}"
+    type: sum
+    sql: ${corrispettivo} ;;
+    value_format: "#,##0"
+    filters: [negozio_calendario.ac_vs_ap: "AP"]
+  }
 }
