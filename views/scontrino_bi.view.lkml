@@ -62,30 +62,8 @@ view: scontrino_bi {
     type: number
     sql: safe_divide(${num_clienti_AC} - ${num_clienti_AP}, ${num_clienti_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
-
-  #measure: num_clienti_rep_AC {
-  #  label: "N. clienti {{_filters['negozio_calendario.anno_confronto_filtro']}}"
-  #  type: sum
-  #  sql: ${num_clienti_reparto} ;;
-  #  value_format: "#,##0"
-  #  filters: [negozio_calendario.ac_vs_ap: "AC"]
-  #}
-#
-  #measure: num_clienti_rep_AP {
-  #  #label: "N. clienti {{_filters['negozio_calendario.anno_confronto_filtro']}}"
-  #  type: sum
-  #  sql: ${num_clienti_reparto} ;;
-  #  value_format: "#,##0"
-  #  filters: [negozio_calendario.ac_vs_ap: "AP"]
-  #}
-#
-  #measure: var_clienti_rep {
-  #  label: "Var. nr clienti"
-  #  type: number
-  #  sql: safe_divide(${num_clienti_rep_AC} - ${num_clienti_rep_AP}, ${num_clienti_rep_AP}) ;;
-  #  value_format: "0.00%"
-  #}
 
   ################################### REPARTO 03 ##################################
 
@@ -110,6 +88,7 @@ view: scontrino_bi {
     type: number
     sql: safe_divide(${num_clienti_03_AC} - ${num_clienti_03_AP}, ${num_clienti_03_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 04 ##################################
@@ -135,6 +114,7 @@ view: scontrino_bi {
     type: number
     sql: safe_divide(${num_clienti_04_AC} - ${num_clienti_04_AP}, ${num_clienti_04_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 01 ##################################
@@ -160,6 +140,7 @@ view: scontrino_bi {
     type: number
     sql: safe_divide(${num_clienti_01_AC} - ${num_clienti_01_AP}, ${num_clienti_01_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 02 ##################################
@@ -185,6 +166,7 @@ view: scontrino_bi {
     type: number
     sql: safe_divide(${num_clienti_02_AC} - ${num_clienti_02_AP}, ${num_clienti_02_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 05 ##################################
@@ -210,6 +192,7 @@ view: scontrino_bi {
     type: number
     sql: safe_divide(${num_clienti_05_AC} - ${num_clienti_05_AP}, ${num_clienti_05_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 07 ##################################
@@ -235,6 +218,7 @@ view: scontrino_bi {
     type: number
     sql: safe_divide(${num_clienti_07_AC} - ${num_clienti_07_AP}, ${num_clienti_07_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 08 ##################################
@@ -260,6 +244,7 @@ view: scontrino_bi {
     type: number
     sql: safe_divide(${num_clienti_08_AC} - ${num_clienti_08_AP}, ${num_clienti_08_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 06 ##################################
@@ -285,6 +270,7 @@ view: scontrino_bi {
     type: number
     sql: safe_divide(${num_clienti_06_AC} - ${num_clienti_06_AP}, ${num_clienti_06_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 11 ##################################
@@ -310,6 +296,7 @@ view: scontrino_bi {
     type: number
     sql: safe_divide(${num_clienti_11_AC} - ${num_clienti_11_AP}, ${num_clienti_11_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 10 ##################################
@@ -335,6 +322,7 @@ view: scontrino_bi {
     type: number
     sql: safe_divide(${num_clienti_10_AC} - ${num_clienti_10_AP}, ${num_clienti_10_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 52 ##################################
@@ -360,6 +348,7 @@ view: scontrino_bi {
     type: number
     sql: safe_divide(${num_clienti_52_AC} - ${num_clienti_52_AP}, ${num_clienti_52_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 }

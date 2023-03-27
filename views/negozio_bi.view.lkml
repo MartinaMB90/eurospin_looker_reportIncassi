@@ -60,6 +60,7 @@ view: negozio_bi {
   }
 
   dimension: negozio_cod_descr{
+    label: "Punti vendita"
     type: string
     sql: ${TABLE}.Ente_Destinatario || " - " || ${TABLE}.Nome ;;
   }

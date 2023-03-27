@@ -65,6 +65,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_AC} - ${corrispettivi_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red; font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_budget {
@@ -72,6 +73,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_AC} - ${budget_consolidato_bi.budget_AC}, ${budget_consolidato_bi.budget_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold; background-color: #fae5cc;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: corrispettivi_progressivo_AC {
@@ -91,10 +93,11 @@ view: movimento_magazzino_bi {
   }
 
   measure: variazione_progress {
-    label: "Variazione progressivo %"
+    label: "% progressivo %"
     type: number
     sql: safe_divide(${corrispettivi_progressivo_AC} - ${corrispettivi_progressivo_AP}, ${corrispettivi_progressivo_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: scarti_AC {
@@ -118,6 +121,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${scarti_AC}, ${corrispettivi_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: incidenza_scarti_AP {
@@ -125,6 +129,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${scarti_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: prod_metro_quadro_AC {
@@ -146,6 +151,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${prod_metro_quadro_AC} - ${prod_metro_quadro_AP}, ${prod_metro_quadro_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: spesa_media_AC {
@@ -167,6 +173,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${spesa_media_AC} - ${spesa_media_AP}, ${spesa_media_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   ################################### REPARTO 03 ##################################
@@ -184,6 +191,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_03_AC}, ${corrispettivi_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_budget_03 {
@@ -191,6 +199,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_03_AC} - ${budget_consolidato_bi.budget_03_AC}, ${budget_consolidato_bi.budget_03_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold; background-color: #fae5cc;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: corrispettivi_03_AP {
@@ -206,6 +215,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_03_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: diff_inc_corrispettivi_03 {
@@ -213,6 +223,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: ${inc_corrispettivi_03_AC} - ${inc_corrispettivi_03_AP} ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_corrispettivi_03 {
@@ -241,6 +252,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${spesa_media_03_AC} - ${spesa_media_03_AP}, ${spesa_media_03_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 04 ##################################
@@ -258,6 +270,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_04_AC}, ${corrispettivi_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_budget_04 {
@@ -265,6 +278,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_04_AC} - ${budget_consolidato_bi.budget_04_AC}, ${budget_consolidato_bi.budget_04_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold; background-color: #fae5cc;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: corrispettivi_04_AP {
@@ -280,6 +294,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_04_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: diff_inc_corrispettivi_04 {
@@ -287,6 +302,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: ${inc_corrispettivi_04_AC} - ${inc_corrispettivi_04_AP} ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_corrispettivi_04 {
@@ -315,6 +331,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${spesa_media_04_AC} - ${spesa_media_04_AP}, ${spesa_media_04_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 01 ##################################
@@ -332,6 +349,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_01_AC}, ${corrispettivi_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_budget_01 {
@@ -339,6 +357,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_01_AC} - ${budget_consolidato_bi.budget_01_AC}, ${budget_consolidato_bi.budget_01_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold; background-color: #fae5cc;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: corrispettivi_01_AP {
@@ -354,6 +373,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_01_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: diff_inc_corrispettivi_01 {
@@ -361,6 +381,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: ${inc_corrispettivi_01_AC} - ${inc_corrispettivi_01_AP} ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_corrispettivi_01 {
@@ -389,6 +410,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${spesa_media_01_AC} - ${spesa_media_01_AP}, ${spesa_media_01_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 02 ##################################
@@ -406,6 +428,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_02_AC}, ${corrispettivi_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_budget_02 {
@@ -413,6 +436,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_02_AC} - ${budget_consolidato_bi.budget_02_AC}, ${budget_consolidato_bi.budget_02_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold; background-color: #fae5cc;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: corrispettivi_02_AP {
@@ -428,6 +452,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_02_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: diff_inc_corrispettivi_02 {
@@ -435,6 +460,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: ${inc_corrispettivi_03_AC} - ${inc_corrispettivi_03_AP} ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_corrispettivi_02 {
@@ -463,6 +489,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${spesa_media_02_AC} - ${spesa_media_02_AP}, ${spesa_media_02_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 05 ##################################
@@ -480,6 +507,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_05_AC}, ${corrispettivi_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_budget_05 {
@@ -487,6 +515,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_05_AC} - ${budget_consolidato_bi.budget_05_AC}, ${budget_consolidato_bi.budget_05_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold; background-color: #fae5cc;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: corrispettivi_05_AP {
@@ -502,6 +531,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_05_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: diff_inc_corrispettivi_05 {
@@ -509,6 +539,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: ${inc_corrispettivi_05_AC} - ${inc_corrispettivi_05_AP} ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_corrispettivi_05 {
@@ -537,6 +568,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${spesa_media_05_AC} - ${spesa_media_05_AP}, ${spesa_media_05_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 07 ##################################
@@ -554,6 +586,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_07_AC}, ${corrispettivi_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_budget_07 {
@@ -561,6 +594,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_07_AC} - ${budget_consolidato_bi.budget_07_AC}, ${budget_consolidato_bi.budget_07_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold; background-color: #fae5cc;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: corrispettivi_07_AP {
@@ -576,6 +610,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_07_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: diff_inc_corrispettivi_07 {
@@ -583,6 +618,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: ${inc_corrispettivi_07_AC} - ${inc_corrispettivi_07_AP} ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_corrispettivi_07 {
@@ -611,6 +647,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${spesa_media_07_AC} - ${spesa_media_07_AP}, ${spesa_media_07_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 08 ##################################
@@ -628,6 +665,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_08_AC}, ${corrispettivi_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_budget_08 {
@@ -635,6 +673,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_08_AC} - ${budget_consolidato_bi.budget_08_AC}, ${budget_consolidato_bi.budget_08_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold; background-color: #fae5cc;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: corrispettivi_08_AP {
@@ -650,6 +689,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_08_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: diff_inc_corrispettivi_08 {
@@ -657,6 +697,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: ${inc_corrispettivi_08_AC} - ${inc_corrispettivi_08_AP} ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_corrispettivi_08 {
@@ -685,6 +726,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${spesa_media_08_AC} - ${spesa_media_08_AP}, ${spesa_media_08_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 06 ##################################
@@ -702,6 +744,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_06_AC}, ${corrispettivi_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_budget_06 {
@@ -709,6 +752,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_06_AC} - ${budget_consolidato_bi.budget_06_AC}, ${budget_consolidato_bi.budget_06_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold; background-color: #fae5cc;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: corrispettivi_06_AP {
@@ -724,6 +768,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_06_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: diff_inc_corrispettivi_06 {
@@ -731,6 +776,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: ${inc_corrispettivi_06_AC} - ${inc_corrispettivi_06_AP} ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_corrispettivi_06 {
@@ -759,6 +805,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${spesa_media_06_AC} - ${spesa_media_06_AP}, ${spesa_media_06_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 11 ##################################
@@ -776,6 +823,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_11_AC}, ${corrispettivi_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_budget_11 {
@@ -783,6 +831,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_11_AC} - ${budget_consolidato_bi.budget_11_AC}, ${budget_consolidato_bi.budget_11_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold; background-color: #fae5cc;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: corrispettivi_11_AP {
@@ -798,6 +847,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_11_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: diff_inc_corrispettivi_11 {
@@ -805,6 +855,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: ${inc_corrispettivi_11_AC} - ${inc_corrispettivi_11_AP} ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_corrispettivi_11 {
@@ -833,6 +884,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${spesa_media_11_AC} - ${spesa_media_11_AP}, ${spesa_media_11_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 10 ##################################
@@ -850,6 +902,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_10_AC}, ${corrispettivi_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_budget_10 {
@@ -857,6 +910,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_10_AC} - ${budget_consolidato_bi.budget_10_AC}, ${budget_consolidato_bi.budget_10_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold; background-color: #fae5cc;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: corrispettivi_10_AP {
@@ -872,6 +926,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_10_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: diff_inc_corrispettivi_10 {
@@ -879,6 +934,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: ${inc_corrispettivi_10_AC} - ${inc_corrispettivi_10_AP} ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_corrispettivi_10 {
@@ -907,6 +963,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${spesa_media_10_AC} - ${spesa_media_10_AP}, ${spesa_media_10_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 ################################### REPARTO 52 ##################################
@@ -924,6 +981,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_52_AC}, ${corrispettivi_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_budget_52 {
@@ -931,6 +989,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_52_AC} - ${budget_consolidato_bi.budget_52_AC}, ${budget_consolidato_bi.budget_52_AC}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold; background-color: #fae5cc;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: black;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: corrispettivi_52_AP {
@@ -946,6 +1005,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${corrispettivi_52_AP}, ${corrispettivi_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: diff_inc_corrispettivi_52 {
@@ -953,6 +1013,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: ${inc_corrispettivi_52_AC} - ${inc_corrispettivi_52_AP} ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
   measure: var_corrispettivi_52 {
@@ -981,6 +1042,7 @@ view: movimento_magazzino_bi {
     type: number
     sql: safe_divide(${spesa_media_52_AC} - ${spesa_media_52_AP}, ${spesa_media_52_AP}) ;;
     value_format: "0.00%"
+    html: {% if value < 0 %}<b><i><div style="color: red;  font-weight: bold;">{{ rendered_value }}</div></i></b>{% else %} <div style = "color: #632596;">{{ rendered_value }}</div>{% endif %} ;;
   }
 
 }
